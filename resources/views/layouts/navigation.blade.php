@@ -13,7 +13,10 @@
                 @php
                 $routes = [
                 ['name' => 'Dashboard', 'path' => 'dashboard', 'to' => 'dashboard' ],
-                ['name' => 'Users', 'path' => 'users', 'to' => 'users' ]
+                ['name' => 'Users', 'path' => 'users', 'to' => 'users' ],
+                ['name' => 'Customers', 'path' => 'customers', 'to' => 'customers' ],
+                ['name' => 'Inventory', 'path' => 'inventory', 'to' => 'inventory' ],
+                ['name' => 'Sells', 'path' => 'sell', 'to' => 'sell' ],
                 ]
                 @endphp
 
