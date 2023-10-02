@@ -11,7 +11,7 @@ class Products extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    // protected $table = 'products';
+    protected $table = 'products';
 
     /**
      * The attributes that are mass assignable.

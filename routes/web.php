@@ -1,12 +1,23 @@
 <?php
 
 use App\Livewire\Products;
-use App\Livewire\Inventory\Stocks;
+use App\Livewire\ListProducts;
+use App\Livewire\Inventory\Add;
+use App\Livewire\Inventory\All;
 use App\Livewire\Inventory\Outlets;
 use App\Livewire\Inventory\Displays;
 use App\Livewire\Inventory\NewModel;
+use App\Livewire\Inventory\AddStocks;
+use App\Livewire\Inventory\AppStocks;
+use App\Livewire\Inventory\EditModel;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Inventory\AddNewModel;
+use App\Livewire\Inventory\Views\Outlet;
+use App\Livewire\Inventory\Views\Stocks;
+use App\Livewire\Inventory\Views\Display;
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Inventory\AddOutletStocks;
+use App\Livewire\Inventory\AddDisplayStocks;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,15 +48,31 @@ Route::get('/customers', function () {
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/inventory', Products::class)->name('inventory');
+    Route::get('/inventory', function () {
+        return view('inventory');
+    })->name('inventory');
+
+    Route::get('/inventory/add-stocks/{id}', AddStocks::class)->name('add-stocks');
+
+    Route::get('/inventory/add-outlet_stocks/{id}', AddOutletStocks::class)->name('add-outlet_stocks');
+
+    Route::get('/inventory/add-display_stocks/{id}', AddDisplayStocks::class)->name('add-display_stocks');
+
+    Route::get('/inventory/edit-model/{id}', EditModel::class)->name('edit-model');
+
+    Route::get('/inventory/add-new-model', AddNewModel::class)->name('add-new-model');
 
     Route::get('/inventory/stocks', Stocks::class)->name('stocks');
 
-    Route::get('/inventory/displays', Displays::class)->name('displays');
+    Route::get('/inventory/display', Display::class)->name('display');
 
-    Route::get('/inventory/outlets', Outlets::class)->name('outlets');
+    Route::get('/inventory/outlet', Outlet::class)->name('outlet');
 
-    Route::get('/inventory/new_model', NewModel::class)->name('new_model');
+    // Route::get('/inventory/displays', Displays::class)->name('displays');
+
+    // Route::get('/inventory/outlets', Outlets::class)->name('outlets');
+
+    // Route::get('/inventory/new_model', NewModel::class)->name('new_model');
 });
 
 Route::get('/sell', function () {

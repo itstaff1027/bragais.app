@@ -19,6 +19,7 @@
 
     <link href="{{ asset('css/dashboard/styles.css') }}" rel="stylesheet">
 
+
 </head>
 
 <body class="font-sans antialiased">
@@ -39,6 +40,7 @@
             {{ $slot }}
         </main>
     </div>
+
 </body>
 
 </html>

@@ -6,9 +6,11 @@ use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Livewire\WithPagination;
 
 class CreateUser extends Component
 {
+    use WithPagination;
     public $name;
     public $email;
     public $password;

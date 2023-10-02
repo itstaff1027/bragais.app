@@ -36,8 +36,6 @@
                             <button type="submit" class="bg-teal-700 text-white p-2 rounded-full w-40">Add
                                 Customer</button>
                         </div>
-
-
                 </form>
             </div>
         </div>
@@ -74,6 +72,7 @@
             </tr>
             @endforeach
         </tbody>
-    </table>
 
+    </table>
+    {{ $customers->links() }}
 </div>

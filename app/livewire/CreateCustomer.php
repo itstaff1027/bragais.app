@@ -5,9 +5,11 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Customer;
 use Illuminate\Support\Facades\DB;
+use Livewire\WithPagination;
 
 class CreateCustomer extends Component
 {
+    use WithPagination;
     public $first_name;
     public $last_name;
     public $email;
@@ -40,11 +42,11 @@ class CreateCustomer extends Component
         // Reset form input fields.
         $this->reset(['first_name', 'last_name', 'email', 'mobile_number', 'city_address', 'consent']);
     }
-
+    
     public function render()
     {
         return view('livewire.create-customer', [
-            'customers' => Customer::all()
+            'customers' => Customer::Paginate(10)
         ]);
     }
 }
